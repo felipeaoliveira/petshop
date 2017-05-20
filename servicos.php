@@ -1,4 +1,6 @@
 <?php
+
+    require_once './model/servico.php';
 /* 
  CRUD
  * C - Create
@@ -17,7 +19,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Dashboard Template for Bootstrap</title>
+    <title>Sistema PetShop | Serviços</title>
     <link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
   </head>
 
@@ -57,15 +59,26 @@
                   <th>Nome</th>
                   <th>Descrição</th>
                   <th>Preço</th>
+                  <th>Ações</th>
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>10</td>
-                  <td>Tosa</td>
-                  <td>Tosa de Cachorro Pequeno</td>
-                  <td>R$ 30,00</td>
+                <?php
+                    $servicos = retornaServicos();
+                    foreach ($servicos as $servico)
+                    {
+                ?>        
+                  <tr>
+                  <td><?php echo $servico['id']; ?></td>
+                  <td><?php echo $servico['nome']; ?></td>
+                  <td><?php echo $servico['descricao']; ?></td>
+                  <td>R$ <?php echo $servico['preco']; ?></td>
+                  <td>
+                      <a href="" class="btn btn-info"> <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
+                      <a href="" class="btn btn-danger"> <span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+                  </td>
                 </tr>
+                    <?php } ?>
               </tbody>
             </table>
           </div>
