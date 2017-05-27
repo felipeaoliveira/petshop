@@ -1,6 +1,7 @@
 <?php
 
-    require_once './model/servico.php';
+    //require_once './model/servico.php';
+    require_once './model/servico_poo.php';
 /* 
  CRUD
  * C - Create
@@ -48,8 +49,9 @@
               </thead>
               <tbody>
                 <?php
-                    $servicos = retornaServicos();
-                    foreach ($servicos as $servico)
+                    $servicos = new Servico();
+                    $registros = $servicos->retornaServicos();
+                    foreach ($registros as $servico)
                     {
                 ?>        
                   <tr>

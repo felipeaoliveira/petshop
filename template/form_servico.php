@@ -33,16 +33,18 @@
                             <div class="alert alert-danger" role="alert"><?php echo $erro_msg; ?> </div>
                             <?php endif; ?>
                         <form class="form-horizontal" action="<?php echo $_SERVER["PHP_SELF"] ?>" method="POST">
+                            
+                            <input type="hidden" name="id" value="<?php echo $valores['id'] ?>" />
+                            
                             <fieldset>
 
                                 <!-- Form Name -->
                                 <legend>Cadastro</legend>
-
                                 <!-- Text input-->
                                 <div class="form-group <?php echo ($erro_nome == true)? "has-error" : ""; ?>" >
                                     <label class="col-md-4 control-label" for="Nome">Nome do Serviço</label>  
                                     <div class="col-md-4">
-                                        <input id="Nome" name="Nome" type="text" placeholder="" class="form-control input-md" required="">
+                                        <input id="Nome" name="Nome" value="<?php echo (isset($valores['nome']))? $valores['nome'] : ""; ?>" type="text" placeholder="" class="form-control input-md" required="">
 
                                     </div>
                                 </div>
@@ -51,7 +53,7 @@
                                 <div class="form-group">
                                     <label class="col-md-4 control-label" for="Descricao">Descrição</label>
                                     <div class="col-md-4">                     
-                                        <textarea class="form-control" id="Descricao" name="Descricao"></textarea>
+                                        <textarea class="form-control" id="Descricao" name="Descricao"><?php echo (isset($valores['descricao']))? $valores['descricao'] : ""; ?></textarea>
                                     </div>
                                 </div>
 
@@ -59,7 +61,7 @@
                                 <div class="form-group <?php echo ($erro_preco == true)? "has-error" : ""; ?>" >
                                     <label class="col-md-4 control-label" for="Preco">Preço</label>  
                                     <div class="col-md-4">
-                                        <input id="Preco" name="Preco" type="text" placeholder="" class="form-control input-md">
+                                        <input id="Preco" name="Preco" value="<?php echo (isset($valores['preco']))? $valores['preco'] : ""; ?>" type="text" placeholder="" class="form-control input-md">
 
                                     </div>
                                 </div>

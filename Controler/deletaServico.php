@@ -1,8 +1,9 @@
 <?php
 
-require_once '../model/servico.php';
+require_once '../model/servico_poo.php';
 
-$status = deletaServico($_GET['id']);
+$servico = new Servico();
+$status = $servico->deletaServico($_GET['id']);
 
 if ($status != false)
 {

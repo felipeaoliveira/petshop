@@ -80,3 +80,23 @@ function getServico ($id)
     
     return $vetor;
 }
+/**
+ * Atualiza as informações do serviço
+ * @param int $id
+ * @param string $nome
+ * @param string $descricao
+ * @param float $valor
+ */
+function atualizaServico($id, $nome, $descricao, $valor)
+{
+    $con = conecta();
+    
+    $sql = "UPDATE servico SET "
+            . "nome = '$nome', "
+            . "descricao = '$descricao', "
+            . "preco = '$valor' "
+            . "WHERE servico.id = '$id'";
+    
+    $retorno = $con->exec($sql);
+    return $retorno;
+}

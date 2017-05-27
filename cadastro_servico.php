@@ -1,5 +1,7 @@
 <?php
-    require_once './model/servico.php';
+    require_once './model/servico_poo.php';
+    
+    $servico = new Servico();
     
     $erro_nome = false;
     $erro_preco = false;
@@ -19,7 +21,7 @@
             // Se todos foram preenchidos
          else
         {
-            $status = CadastraServico($_POST['Nome'], $_POST['Descricao'], $_POST['Preco']);
+            $status = $servico->CadastraServico($_POST['Nome'], $_POST['Descricao'], $_POST['Preco']);
 
             if ($status != FALSE)
             {
