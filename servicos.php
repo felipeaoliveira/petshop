@@ -25,25 +25,9 @@
 
   <body>
 
-    <nav class="navbar navbar-inverse navbar-static-top">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-            <a class="navbar-brand" href="/admin.php">Pet Shop</a>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse">
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="/servicos.php">Serviços</a></li>
-            <li><a href="/funcionarios.php">Funcionários</a></li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+    <?php
+        include './template/topoadmin.php';
+    ?>
 
     <div class="container-fluid">
       <div class="row">
@@ -74,8 +58,8 @@
                   <td><?php echo $servico['descricao']; ?></td>
                   <td>R$ <?php echo $servico['preco']; ?></td>
                   <td>
-                      <a href="" class="btn btn-info"> <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
-                      <a href="" class="btn btn-danger"> <span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+                      <a href="editar_servico.php?id=<?php echo $servico['id']; ?>" class="btn btn-info"> <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
+                      <a href="Controler/deletaServico.php?id=<?php echo $servico['id']; ?>" class="btn btn-danger"> <span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
                   </td>
                 </tr>
                     <?php } ?>
